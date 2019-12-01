@@ -1,5 +1,5 @@
 <template>
-  <div class="calculator col-lg-2">
+  <div class="calculator col-lg-3">
     <table cellspacing="10">
       <tr>
         <td colspan="4">
@@ -10,9 +10,9 @@
         </td>
       </tr>
       <tr>
-        <td class="button dark" @click="clear">C</td>
-        <td class="button dark" @click="invert">+/-</td>
-        <td class="button dark" @click="percent">%</td>
+        <td class="button grey" @click="clear">C</td>
+        <td class="button grey" @click="invert">+/-</td>
+        <td class="button grey" @click="percent">%</td>
         <td class="button orange" @click="setOperator('/')">/</td>
       </tr>
       <tr>
@@ -168,6 +168,7 @@ span:nth-child(3)
 }
 .calculator {
   font-size: 3rem;
+  border: solid 2px black;
 
   table {
     color: #fff;
