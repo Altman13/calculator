@@ -1,17 +1,17 @@
 <template>
   <div class="col-lg-3">
     История операций:
-    <ul v-for="result in allHistory" :key="result.id">
-      <li>{{result}}</li>
-    </ul>
+    <ul v-for="(hist, idx) in history" :key="idx">
+      <li>{{ hist.hist }}</li>
+    </ul> 
     <div>
-      <form>
+      <!-- <form>
         <input v-model="name" />
         <button type="submit" @click.prevent="addLocation(name)">добавить</button>
-      </form>
-      <article v-for="(hist, idx) in history" :key="idx">
-        <h1>{{ hist.test }}</h1>
-      </article>
+      </form> -->
+      <!-- <article v-for="(hist, idx) in history" :key="idx">
+        <h1>{{ hist.hist }}</h1>
+      </article> -->
     </div>
   </div>
 </template>

@@ -44,6 +44,7 @@
 
 <script>
 import { mapActions } from "vuex"
+import { db } from "../main";
 export default {
   data: function() {
     return {
@@ -52,7 +53,8 @@ export default {
       reset: false,
       operator: undefined,
       calc_result: [],
-      timestamp: ""
+      timestamp: "",
+      
     };
   },
   methods: {
@@ -87,11 +89,14 @@ export default {
       this.reset = true;
     },
     equal() {
+      this.calc_result.pop()
       this.getNow();
       this.calculate();
       this.tmp_value = 0;
       this.operator = undefined;
       this.HistoryAdd(this.calc_result)
+      this.addCalcHistroy(this.calc_result)
+
     },
     calculate() {
       let value = 0;
@@ -122,6 +127,9 @@ export default {
           this.result
       )
       
+    },
+    addCalcHistroy(hist) {
+      db.collection("history").add({ hist });
     },
     getNow() {
       const today = new Date();
