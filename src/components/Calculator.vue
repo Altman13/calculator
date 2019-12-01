@@ -3,6 +3,9 @@
     <table cellspacing="10">
       <tr>
         <td colspan="4">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
           <input type="text" v-model="result" disabled />
         </td>
       </tr>
@@ -36,7 +39,6 @@
         <td class="button orange" @click="equal">=</td>
       </tr>
     </table>
-    {{calc_result}}
   </div>
 </template>
 
@@ -139,11 +141,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+span:nth-child(1)
+{
+  background-color: red;
+  margin-top: 5px;
+  margin-left: -160px;
+}
+span:nth-child(2)
+{
+  background-color: green;
+  margin-top: 5px;
+  margin-left: -100px;
+}
+span:nth-child(3)
+{
+  margin-top: 5px;
+  background-color: yellow;
+  margin-left: -130px;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  border-radius: 50%;
+  display: inline-block;
+}
 .calculator {
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
-  //height: 100vh;
   font-size: 3rem;
 
   table {
@@ -153,34 +176,33 @@ export default {
 
   input {
     display: block;
-    width: calc(100% - 40px);
-    height: 75px;
+    width: 100%;
+    height: 125px;
     padding: 5px 20px 0;
-    margin-bottom: 10px;
+    border: 2px solid black;
     border: none;
     background-color: #222;
     color: #fff;
     font-size: 4rem;
     text-align: right;
   }
-
   .button {
     margin: 10px;
-    border-radius: 40px;
     width: 80px;
     height: 80px;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
+    border: 2px solid black;
   }
 
   .button-col2 {
-    border-radius: 40px;
     width: 160px;
     height: 80px;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
+    border: 2px solid black;
   }
 
   .grey {

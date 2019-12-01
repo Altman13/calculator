@@ -12,7 +12,7 @@ const getters = {
     }
 }
 const actions = {
-    async HistoryAdd( {commit }, history ) {
+    async HistoryAdd( { commit }, history ) {
         commit( 'setHistory', history )
     },
 }
