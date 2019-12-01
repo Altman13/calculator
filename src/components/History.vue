@@ -1,13 +1,13 @@
 <template>
-  <div class="col-lg-2">
+  <div class="col-lg-3">
     История операций:
     <ul v-for="result in allHistory" :key="result.id">
       <li>{{result}}</li>
     </ul>
     <div>
-      <form @submit="addLocation(name)">
+      <form>
         <input v-model="name" />
-        <button type="submit">добавить</button>
+        <button type="submit" @click.prevent="addLocation(name)">добавить</button>
       </form>
       <article v-for="(hist, idx) in history" :key="idx">
         <h1>{{ hist.test }}</h1>
@@ -19,11 +19,13 @@
 <script>
 import { mapGetters } from "vuex";
 import { db } from "../main";
+
 export default {
   data() {
     return {
       history: [],
-      name: ""
+      name: "",
+      newTodo: "",
     };
   },
   firestore() {
@@ -32,15 +34,17 @@ export default {
     };
   },
   methods: {
+
     addLocation(test) {
-      // <-- новый метод
-      //const createdAt = new Date()
       db.collection("history").add({ test });
     }
   },
   computed: {
     ...mapGetters(["allHistory"])
-  }
+  },
+  mounted () {
+
+  },
 };
 </script>
 
@@ -50,7 +54,7 @@ li {
   margin-left: -40px;
   line-height: 6px;
 }
-.col-lg-2 {
+.col-lg-3 {
   text-align: left;
   border: solid 2px black;
 }
