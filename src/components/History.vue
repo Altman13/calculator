@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-3">
+  <div class="col-lg-3 col-md-3">
     История операций:
     <ul v-for="(hist, idx) in history" :key="idx">
       <li>{{ hist.hist }}</li>

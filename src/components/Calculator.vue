@@ -1,5 +1,5 @@
 <template>
-  <div class="calculator col-lg-3">
+  <div class="calculator col-lg-4 col-md-3">
     <table cellspacing="10">
       <tr>
         <td colspan="4">
